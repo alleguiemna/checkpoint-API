@@ -12,9 +12,11 @@
     rgba(128, 0, 128, 1) 0%,
     rgba(75, 0, 130, 1) 100%
   );
+  position:relative;
 }
 .card{
-  transition: width 2s, height 2s, transform 2s;
+  transition: width 2s, transform 0.5s;
+  position:absolute;
 }
 .card:hover {
   transform: rotate(180deg);

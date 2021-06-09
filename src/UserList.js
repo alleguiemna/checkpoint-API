@@ -3,7 +3,8 @@ import axios from "axios";
 import { Spinner } from "react-bootstrap";
 import UserCard from "./UserCard";
 
-const UserList = () => {
+const UserList = (props) => {
+  console.log(props)
   const [listOfUsers, setListOfUsers] = useState([]);
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(true);

@@ -15,8 +15,7 @@ function App() {
           <Route path="/" exact component={UserList} />
           <Route
             path="/profile/:id"
-            render={(props) => <UserDetail {...props} />}
-          />
+            component={UserDetail} />
         </Switch>
       </Router>
       <Footer />

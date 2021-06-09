@@ -15,21 +15,21 @@ const UserCard = ({ user }) => {
             <p>
               <Disc style={{ color: "indigo", marginRight: "8px" }} />
               <span style={{ color: "indigo", textDecoration: "underline" }}>
-                Username:
+                <strong>Username:</strong>
               </span>
               {user.username}
             </p>
             <p>
               <Mail style={{ color: "indigo", marginRight: "8px" }} />
               <span style={{ color: "indigo", textDecoration: "underline" }}>
-                Email:
+                <strong>Email:</strong>
               </span>
               {user.email}
             </p>
             <p>
               <Phone style={{ color: "indigo", marginRight: "8px" }} />
               <span style={{ color: "indigo", textDecoration: "underline" }}>
-                Phone:
+                <strong>Phone:</strong>
               </span>
               {user.phone}
             </p>
