@@ -76,7 +76,7 @@ const UserDetail = ({match}) => {
           </p>
           <p> 
              <Link2 style={{ color: "indigo", marginRight: "8px" }} /><strong>Compagny:</strong>
-            {`${user.compan}`}
+            {`${user.company}`}
           </p> 
           <Link to="/">
             <Button style={{ background: "indigo" }}>Go Back</Button>
