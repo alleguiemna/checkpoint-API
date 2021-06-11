@@ -8,12 +8,11 @@ const UserDetail = ({match}) => {
   const [user, setUser] = useState({});
   const [err, setErr] = useState("");
   useEffect(() => {
-    axios
+    return axios
       .get(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
       .then((res) => {
         setUser(res.data);
         console.log(res.data);
-        console.log(res.data.address.street)
       }) //;setLoading(true)}
       .catch((err) => setErr(err.response.data));
   }, [match]);
@@ -62,9 +61,7 @@ const UserDetail = ({match}) => {
           </p>
            <p>
             <AtSign style={{ color: "indigo", marginRight: "8px" }} /><strong>Address:</strong>
-            <span >{`${user.address.street}`} <span>,</span>{`${user.address.suite}`}</span>
-            <br />
-            <span style={{marginRight:"16px"}}>{`${user.address.city}`}<span>,</span>{`${user.address.zipcode}`}</span>
+            {`${user.address}`} 
           </p>
           <p>
             <PhoneCall style={{ color: "indigo", marginRight: "8px" }} /><strong>Phone:</strong>
@@ -75,11 +72,11 @@ const UserDetail = ({match}) => {
             {user.website}
           </p>
           <p><MapPin style={{ color: "indigo", marginRight: "8px" }}/><strong>Geo:</strong>
-          {`${user.geo.lat}`}<span>,</span>{`${user.geo.lng}`}
+          {`${user.geo}`} 
           </p>
           <p> 
              <Link2 style={{ color: "indigo", marginRight: "8px" }} /><strong>Compagny:</strong>
-            {`${user.company.name}`}
+            {`${user.compan}`}
           </p> 
           <Link to="/">
             <Button style={{ background: "indigo" }}>Go Back</Button>
