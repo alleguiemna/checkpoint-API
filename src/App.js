@@ -9,19 +9,16 @@ import Footer from "./Footer";
 function App() {
   return (
     <div className="App">
-      {/* //<Header  /> */}
+      <Header  />
       <Router >
         <Switch>
-          <Route path="/" component={Header}/>
-          <Route path="/"  component={UserList} />
+          <Route path="/" exact component={UserList} />
           <Route
-            path="/profile/:id"
-            exact
+            path="/profile/:id" exact
             render={(props) => <UserDetail {...props}/>} />
-            <Route path="/" component={Footer}/>
         </Switch>
       </Router>
-      {/* <Footer /> */}
+       <Footer /> 
     </div>
   );
 }
