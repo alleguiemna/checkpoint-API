@@ -13,15 +13,15 @@ function App() {
       <Router >
         <Switch>
           <Route path="/" component={Header}/>
-          <Route path="/" exact component={UserList} />
+          <Route path="/"  component={UserList} />
           <Route
             path="/profile/:id"
             exact
             render={(props) => <UserDetail {...props}/>} />
-            <Route path="/" exact component={Footer}/>
+            <Route path="/" component={Footer}/>
         </Switch>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
