@@ -8,40 +8,32 @@ const UserDetail = ({match}) => {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState({});
   const [err, setErr] = useState("");
-  // useEffect(() => {
-  //   return axios
-  //     .get(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
-  //     .then((res) => {
-  //       setUser(res.data);
-  //       console.log(res.data);
-  //       setLoading(false);
-  //     }) 
-  //     .catch((err) => setErr(err.response.data));
-  // }, [match]);
-  
-    const fetchData = async () => {
-      await axios.get(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
-      .then(res =>{
+  useEffect(() => {
+    return axios
+      .get(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
+      .then((res) => {
         setUser(res.data);
         console.log(res.data);
-        setLoading(false);})
-      .catch(err=>setErr(err.response.data));
-      };
-    useEffect(() => fetchData(), [])
-
+        setLoading(false);
+      }) 
+      .catch((err) => setErr(err.response.data));
+  }, [match]);
+  
+    // const fetchData = async () => {
+    //   await axios.get(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
+    //   .then(res =>{
+    //     setUser(res.data);
+    //     console.log(res.data);
+    //     setLoading(false);})
+    //   .catch(err=>setErr(err.response.data));
+    //   };
+    // useEffect(() => fetchData(), [])
+    if (loading) {
+      return <Spinner animation="border" variant="secondary" />;
+    }
    return (
     <div className="detail">
-      {loading ? (
-        <Spinner animation="border" variant="secondary" />
-      ) : (
-        <ActualStuff user={user} />
-      )}
-    </div>
-  );
-};
-  const ActualStuff=({user}) =>{
-    return(
-    <Card 
+      <Card 
        style={{
           width: "22rem",
           borderRadius: "10px",
@@ -96,8 +88,8 @@ const UserDetail = ({match}) => {
             <Button style={{ background: "indigo" }}>Go Back</Button>
           </Link>
          </Card.Body>
-       </Card>  
+       </Card> 
+    </div>
   );
-  };
-  
+};
 export default UserDetail;
